@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir>
+
+# fail fast
+set -e
+
+# debug
+# set -x
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+WASMER_BUILD_DIR=$BUILD_DIR/.wasmer
+
+function topic() {
+  echo "-----> $*"
+}
+
+topic "Installing WebAssembly packages"
+source $WASMER_BUILD_DIR/wasmer.sh
+cd $BUILD_DIR && wapm install && cd -
