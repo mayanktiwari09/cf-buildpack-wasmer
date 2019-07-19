@@ -25,8 +25,7 @@ description = ""
 nginx = "0.1.1"
 ```
 
-Add a `Procfile` that runs Nginx with Wasmer. The following script substitute Nginx port with the environment variable `$PORT`:
-
+Add a `Procfile` that runs Nginx with Wasmer:
 ```
 $ cat Procfile
 web: wasmer run nginx.wasm -- -p . -c nginx.conf
